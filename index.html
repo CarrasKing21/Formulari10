@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Personalizado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            margin: 20px;
+            color: #fff;
+        }
+
+        h2 {
+            color: #fff;
+        }
+
+        form {
+            background-color: #444;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #555;
+            color: #fff;
+        }
+
+        fieldset {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: #555;
+        }
+
+        legend {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        input[type="file"] {
+            margin-top: 5px;
+        }
+
+        input[type="radio"]:checked+label,
+        input[type="checkbox"]:checked+label {
+            color: red;
+        }
+
+        select {
+            background-color: #555;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Datos Personales y Preferencias</h2>
+
+    <form action="/procesar_formulario" method="post" enctype="multipart/form-data">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="correo">Correo Electrónico:</label>
+        <input type="email" id="correo" name="correo" required>
+
+        <fieldset>
+            <legend>Dirección</legend>
+
+            <label for="calle">Calle:</label>
+            <input type="text" id="calle" name="calle" required>
+
+            <label for="ciudad">Ciudad:</label>
+            <input type="text" id="ciudad" name="ciudad" required>
+
+            <label for="codigoPostal">Código Postal:</label>
+            <input type="text" id="codigoPostal" name="codigoPostal" required>
+        </fieldset>
+
+        <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+        <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+
+        <label>Preferencias:</label>
+        <br>
+        <input type="checkbox" id="gusto1" name="preferencias[]" value="Musica">
+        <label for="gusto1">Música</label>
+
+        <br>
+
+        <input type="checkbox" id="gusto2" name="preferencias[]" value="Deportes">
+        <label for="gusto2">Deportes</label>
+
+        <br>
+
+        <input type="checkbox" id="gusto3" name="preferencias[]" value="Viajes">
+        <label for="gusto3">Viajes</label>
+
+        <br>
+
+        <label for="tipoCuenta">Tipo de Cuenta:</label>
+        <br>
+        <input type="radio" id="estandar" name="tipoCuenta" value="estandar" checked>
+        <label for="estandar">Estándar</label>
+
+        <br>
+
+        <input type="radio" id="premium" name="tipoCuenta" value="premium">
+        <label for="premium">Premium</label>
+
+        <br>
+
+        <input type="radio" id="basico" name="tipoCuenta" value="basico">
+        <label for="basico">Básico</label>
+
+        <br>
+
+        <label for="pais">País de Origen:</label>
+        <select id="pais" name="pais" required>
+            <option value="" disabled selected>Selecciona tu país</option>
+            <option value="es">España</option>
+            <option value="mx">México</option>
+            <option value="ar">Argentina</option>
+            <!-- Añadir más opciones según sea necesario -->
+        </select>
+
+        <br>
+
+        <label for="archivo">Selecciona un archivo:</label>
+        <input type="file" id="archivo" name="archivo" accept=".pdf, .doc, .docx, .jpg, .jpeg, .png" required>
+
+        <br>
+
+        <label for="comentarios">Comentarios o Sugerencias:</label>
+        <textarea id="comentarios" name="comentarios" rows="4" cols="50" required></textarea>
+
+        <br>
+
+        <input type="submit" value="Enviar">
+    </form>
+
+</body>
+</html>
